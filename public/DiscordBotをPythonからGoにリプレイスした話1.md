@@ -10,4 +10,20 @@ organization_url_name: null
 slide: false
 ignorePublish: false
 ---
-# new article body
+# はじめに
+こんにちは。社会人1年目のサーバーサイドエンジニアのマグロです。
+コロナの熱にうなされながら書いてます。
+
+今回はふんわりLTで発表した「DiscordBotをPythonからGoにリプレイスした話」をしていこうかと思います。
+- bot概要
+- やろうとした経緯
+- 負債一覧
+- 設計
+  - bot
+  - dbtable
+  - web
+    - api
+    - view
+    - js
+  - test
+
