@@ -28,7 +28,16 @@ https://github.com/maguro-alternative/discordfast
 - niconico,YouTubeのWebhook通知
 - 上記を管理するadminページ
 
-# やろうとした経緯及び負債
+# 負債一覧
+- Pythonで導入しているパッケージが多い。
+  - GitHubのスター数が少ないライブラリもあり、将来的に壊れる懸念があった。
+- ```aiohttp```の使い方が正しくない。
+  - リクエストするたびに```session```貼っていた(session貼っても使い回さない)ため、パフォーマンスがよろしくない。
+- **データベースにのカラムに配列は存在する。**
+- adminページのjsが複雑で読ませる気がない。
+
+# やろうとした経緯
+
 - 負債一覧
 - 設計
   - bot
