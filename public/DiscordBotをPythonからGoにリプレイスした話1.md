@@ -4,7 +4,7 @@ tags:
   - Go
   - discord
 private: true
-updated_at: '2024-08-13T21:04:32+09:00'
+updated_at: '2024-08-14T09:41:43+09:00'
 id: 080deb431adeefc61080
 organization_url_name: null
 slide: false
