@@ -28,7 +28,7 @@ https://github.com/maguro-alternative/discordfast
 - niconico,YouTubeのWebhook通知
 - 上記を管理するadminページ
 
-- やろうとした経緯
+# やろうとした経緯及び負債
 - 負債一覧
 - 設計
   - bot
