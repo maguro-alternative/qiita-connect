@@ -195,6 +195,7 @@ https://github.com/jmoiron/sqlx
 
 ## パッケージ(pkg)
 botとwebで同じ処理を行うものを置きます。
+暗号化やデータベース、LINE、YouTubeのAPIなどを置いています。
 ```
 .
 ├── bot           // DiscordBotのディレクトリ
@@ -206,12 +207,6 @@ botとwebで同じ処理を行うものを置きます。
 ├── go.sum
 └── README.md
 ```
-
-- 暗号化(LINE連携で使用)
-- データベース
-- LINE API
-- 時間共有
-- YouTube API
 
 詳細は該当するリプレイス部分でお話しします。
 
@@ -329,7 +324,6 @@ CREATE TABLE IF NOT EXISTS permissions_role_id (
 ```
 
 これでbotの全体の設計の説明は終了です。
-
 
 - LINE連携
 - VC入退室
