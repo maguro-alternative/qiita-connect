@@ -241,11 +241,20 @@ https://github.com/stretchr/testify
 
 また、webでは一部jsを使用するため、```jest```を使用します。
 
-  - bot
-  - dbtable
-  - web
-    - api
-    - view
-    - js
-  - test
+### repositoryのテスト
+想定通りにinsertやselectが出来ているか確認します。
+流れは
+- テスト開始
+- トランザクションを貼る
+- テスト処理
+- ロールバック
+- テスト終了
+
+とすることでデータベースへの影響を気にせずにテストを行えます。
+フィクスチャはいい感じなものがなさそうなので自作します。
+
+https://engineering.mercari.com/blog/entry/20220411-42fc0ba69c/
+
+https://speakerdeck.com/maguroalternative/golangnodetabesutesutohuikusutiyazuo-cheng
+
 
