@@ -257,4 +257,28 @@ https://engineering.mercari.com/blog/entry/20220411-42fc0ba69c/
 
 https://speakerdeck.com/maguroalternative/golangnodetabesutesutohuikusutiyazuo-cheng
 
+### botのテスト
+discordgo側で各機能は動作検証されているので、モックでの結合テストが主になります。
+詳しくは以下の記事をご覧ください。
 
+https://zenn.dev/maguro_alterna/articles/6749101c15046f
+
+### webのテスト
+こちらも結合テストが主になります。
+詳細は該当部分で説明します。
+
+### testunit
+上記のフィクスチャとモックを定義します。
+```
+.
+├── bot           // DiscordBotのディレクトリ
+├── core          // main.goのディレクトリ
+├── pkg           // 共通のパッケージ
+├── repository    // データベース操作のディレクトリ
+├── tasks         // 定期的に行うタスク(Webhookの送信など)
+├── testutil      // テスト用のユーティリティ
+├── web           // web(api,view)のディレクトリ
+├── go.mod
+├── go.sum
+└── README.md
+```
