@@ -140,6 +140,26 @@ API側のバリデーションチェックには```govalidator```を採用して
 https://github.com/asaskevich/govalidator
 
 ### ディレクトリ構造(web)
+```
+├── web
+│   ├── components              // Webサーバーのviewコンポーネント
+│   ├── config                  // 環境変数設定ファイル
+│   ├── handler                 // Webサーバーのハンドラ
+│   ├── middleware              // Webサーバーのミドルウェア
+│   ├── service                 // Webサーバーのサービス
+│   ├── shared                  // Webサーバー内での共通のパッケージ
+│   └── templates               // WebサーバーのHTMLテンプレート
+```
+
+```components```はviewページのコンポーネントを置いています。
+以下のような認証情報の表示に使っています。
+|before|after|
+|---|---|
+|![image.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2853914/5e022626-e9ee-9b75-5b49-20c656cbf85c.png)|![image-1.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2853914/928843dc-d3cb-be32-2277-2aa27ceea136.png)|
+
+```handler```はそれぞれのhttpパスの処理を書きます。
+```middleware```は認証情報の確認やログをとるミドルウェアを置いています。
+```service```はhttpパスで使用する構造体フィールドの宣言を置いてます。
 
   - bot
   - dbtable
