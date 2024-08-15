@@ -135,6 +135,8 @@ https://github.com/bwmarrin/dgvoice
 
 https://github.com/gorilla/sessions
 
+API部分ではjsonを扱わせたいため、formをjsonに変換するためjsを使用します。
+
 API側のバリデーションチェックには```govalidator```を採用しています。
 
 https://github.com/asaskevich/govalidator
@@ -282,3 +284,54 @@ https://zenn.dev/maguro_alterna/articles/6749101c15046f
 ├── go.sum
 └── README.md
 ```
+
+## テーブル設計
+以下のような配列のあるテーブルは徹底的に排除します。
+```
+CREATE TABLE IF NOT EXISTS guild_set_permissions (
+    guild_id NUMERIC PRIMARY KEY,
+    line_permission NUMERIC NOT NULL DEFAULT 8,
+    line_user_id_permission NUMERIC[] NOT NULL DEFAULT '{}',
+    line_role_id_permission NUMERIC[] NOT NULL DEFAULT '{}',
+    line_bot_permission NUMERIC NOT NULL DEFAULT 8,
+    line_bot_user_id_permission NUMERIC[] NOT NULL DEFAULT '{}',
+    line_bot_role_id_permission NUMERIC[] NOT NULL DEFAULT '{}',
+    vc_permission NUMERIC NOT NULL DEFAULT 8,
+    vc_user_id_permission NUMERIC[] NOT NULL DEFAULT '{}',
+    vc_role_id_permission NUMERIC[] NOT NULL DEFAULT '{}',
+    webhook_permission NUMERIC NOT NULL DEFAULT 8,
+    webhook_user_id_permission NUMERIC[] NOT NULL DEFAULT '{}',
+    webhook_role_id_permission NUMERIC[] NOT NULL DEFAULT '{}'
+);
+```
+上記のテーブルは以下のように3つに分割しました。
+```
+CREATE TABLE IF NOT EXISTS permissions_code (
+    guild_id TEXT NOT NULL,
+    type TEXT NOT NULL,
+    code BIGINT NOT NULL,
+    PRIMARY KEY(guild_id, type)
+);
+CREATE TABLE IF NOT EXISTS permissions_user_id (
+    guild_id TEXT NOT NULL,
+    type TEXT NOT NULL,
+    user_id TEXT NOT NULL,
+    permission TEXT NOT NULL,
+    PRIMARY KEY(guild_id, type, user_id)
+);
+CREATE TABLE IF NOT EXISTS permissions_role_id (
+    guild_id TEXT NOT NULL,
+    type TEXT NOT NULL,
+    role_id TEXT NOT NULL,
+    permission TEXT NOT NULL,
+    PRIMARY KEY(guild_id, type, role_id)
+);
+```
+
+これでbotの全体の設計の説明は終了です。
+
+
+- LINE連携
+- VC入退室
+- スラッシュコマンド
+- 読み上げ
