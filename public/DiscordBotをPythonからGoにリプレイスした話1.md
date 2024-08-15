@@ -161,6 +161,9 @@ https://github.com/asaskevich/govalidator
 ```middleware```は認証情報の確認やログをとるミドルウェアを置いています。
 ```service```はhttpパスで使用する構造体フィールドの宣言を置いてます。
 
+```shared```ではweb内でのパッケージを置きます。
+contextによる値の引渡しや、cookieに保存されている情報の保存や読み取りなどを行います。
+
 ## データベース操作
 当初は各ディレクトリに```internal```を設置し、そこでデータベース操作をしようとしていました。
 ですが、
@@ -188,6 +191,15 @@ https://github.com/asaskevich/govalidator
 
 https://github.com/jmoiron/sqlx
 
+## パッケージ
+botとwebで同じ処理を行うものを置きます。
+- 暗号化(LINE連携で使用)
+- データベース
+- LINE API
+- 時間共有
+- YouTube API
+
+詳細は該当するリプレイス部分でお話しします。
 
   - bot
   - dbtable
