@@ -161,6 +161,34 @@ https://github.com/asaskevich/govalidator
 ```middleware```は認証情報の確認やログをとるミドルウェアを置いています。
 ```service```はhttpパスで使用する構造体フィールドの宣言を置いてます。
 
+## データベース操作
+当初は各ディレクトリに```internal```を設置し、そこでデータベース操作をしようとしていました。
+ですが、
+- botとwebで同様の操作を行う部分が多い。
+- テストする際にモック化が大変。
+- テーブルに変更があった場合、影響を最小限に抑えやすくなる。
+
+という点で```repository```ディレクトリを作成しました。
+
+```
+.
+├── bot           // DiscordBotのディレクトリ
+├── core          // main.goのディレクトリ
+├── repository    // データベース操作のディレクトリ
+├── web           // web(api,view)のディレクトリ
+├── go.mod
+├── go.sum
+└── README.md
+```
+
+## repository
+### repositoryのライブラリ
+データベース操作にはsqlxを採用しました。
+標準ライブラリからの拡張で、入出力で構造体を丸ごと指定できる点がいいと思い採用しました。
+
+https://github.com/jmoiron/sqlx
+
+
   - bot
   - dbtable
   - web
