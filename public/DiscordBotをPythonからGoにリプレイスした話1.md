@@ -85,7 +85,7 @@ https://github.com/bwmarrin/discordgo
 
 https://github.com/bwmarrin/dgvoice
 
-### ディレクトリ構造
+### ディレクトリ構造(bot)
 イベントとスラッシュコマンドの分離をしているだけです。
 ```
 .
@@ -129,6 +129,17 @@ https://github.com/bwmarrin/dgvoice
 
 ## web
 ### webのライブラリ
+フレームワークには頼らず、標準ライブラリの```net/http```と```html/template```で実装します。
+ですがadminの権限があるか確認するために、OAuth2での認証が必要です。
+認証情報の保存がうまくできるか不安だったので```sessions```を採用しました。
+
+https://github.com/gorilla/sessions
+
+API側のバリデーションチェックには```govalidator```を採用しています。
+
+https://github.com/asaskevich/govalidator
+
+### ディレクトリ構造(web)
 
   - bot
   - dbtable
