@@ -193,6 +193,18 @@ https://github.com/jmoiron/sqlx
 
 ## パッケージ(pkg)
 botとwebで同じ処理を行うものを置きます。
+```
+.
+├── bot           // DiscordBotのディレクトリ
+├── core          // main.goのディレクトリ
+├── pkg           // 共通のパッケージ
+├── repository    // データベース操作のディレクトリ
+├── web           // web(api,view)のディレクトリ
+├── go.mod
+├── go.sum
+└── README.md
+```
+
 - 暗号化(LINE連携で使用)
 - データベース
 - LINE API
@@ -208,7 +220,26 @@ https://discordpy.readthedocs.io/ja/latest/ext/tasks/index.html
 
 discordgoには存在しないので、自作します。
 
+```
+.
+├── bot           // DiscordBotのディレクトリ
+├── core          // main.goのディレクトリ
+├── pkg           // 共通のパッケージ
+├── repository    // データベース操作のディレクトリ
+├── tasks         // 定期的に行うタスク(Webhookの送信など)
+├── web           // web(api,view)のディレクトリ
+├── go.mod
+├── go.sum
+└── README.md
+```
 
+## テスト
+ほぼほぼE2Eで行います。
+Goのテストには基本に従いますが、値の比較を行うため```testify```を採用しました。
+
+https://github.com/stretchr/testify
+
+また、webでは一部jsを使用するため、```jest```を使用します。
 
   - bot
   - dbtable
