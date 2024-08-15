@@ -191,7 +191,7 @@ contextによる値の引渡しや、cookieに保存されている情報の保�
 
 https://github.com/jmoiron/sqlx
 
-## パッケージ
+## パッケージ(pkg)
 botとwebで同じ処理を行うものを置きます。
 - 暗号化(LINE連携で使用)
 - データベース
@@ -200,6 +200,15 @@ botとwebで同じ処理を行うものを置きます。
 - YouTube API
 
 詳細は該当するリプレイス部分でお話しします。
+
+## 周期処理(tasks)
+discord.pyおよびpycordには定期処理用の```tasks.loop()```デコレータがありました。
+
+https://discordpy.readthedocs.io/ja/latest/ext/tasks/index.html
+
+discordgoには存在しないので、自作します。
+
+
 
   - bot
   - dbtable
