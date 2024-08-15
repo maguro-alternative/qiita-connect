@@ -58,6 +58,77 @@ botは```pycord```、webは```FastAPI```&```jinja2```&```bootstrap```を採用�
 上記のような負債を考慮し、リファクタリングよりもリプレイスの方が工数が削減できると考え、リプレイスを決断しました。
 
 # 設計
+## botとwebの分離
+まず真っ先に考えたのは、Botとadminページ(以降Web)の分離です。
+リプレイス前も分離はしていたのですが、型定義やデータベース操作などの細かい部分まで区分していなかったため、曖昧な構成になっていました。
+
+以下のように大雑把にディレクトリ分けをしました。
+
+```
+.
+├── bot     // DiscordBotのディレクトリ
+├── core    // main.goのディレクトリ
+├── web     // web(api,view)のディレクトリ
+├── go.mod
+├── go.sum
+└── README.md
+```
+
+## bot
+### botのライブラリ
+discordのライブラリとしてdiscordgoを採用しました。
+採用理由はGoであればなんでも良かったので特にないです。
+
+https://github.com/bwmarrin/discordgo
+
+音声を扱うためdgvoiceも入れてます。
+
+https://github.com/bwmarrin/dgvoice
+
+### ディレクトリ構造
+イベントとスラッシュコマンドの分離をしているだけです。
+```
+.
+├── bot                         // DiscordBotを動かすためのディレクトリ
+│   ├── cogs                    // DiscordBotのコグ
+|   ├── commands                // スラッシュコマンド
+│   ├── config                  // 環境変数設定ファイル
+│   ├── ffmpeg                  // 動画、音声の変換
+│   └── main.go
+```
+
+ファイルは以下のように配置します。
+一機能につき一ファイルといった感じです。
+
+```
+├── bot
+│   ├── cogs
+│   │   ├── internal
+│   │   │   └── entity.go
+│   │   ├── cog_handler.go
+│   │   ├── on_message_create.go
+│   │   ├── on_message_create_test.go
+│   │   ├── on_voice_state_update.go
+│   │   └── on_voice_state_update_test.go
+|   ├── commands
+|   |   ├── command_handler.go
+|   |   ├── command_handler_test.go
+|   |   ├── ping_test.go
+|   |   ├── ping.go
+|   |   ├── voicevox_test.go
+|   |   └── voicevox.go
+│   ├── config
+│   │   ├── internal
+│   │   │   └── env.go
+│   │   └── config.go
+│   ├── ffmpeg
+│   │   ├── ffmpeg_test.go
+│   │   └── ffmpeg.go
+│   └── main.go
+```
+
+## web
+### webのライブラリ
 
   - bot
   - dbtable
