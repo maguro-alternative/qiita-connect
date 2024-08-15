@@ -28,6 +28,10 @@ https://github.com/maguro-alternative/discordfast
 - niconico,YouTubeのWebhook通知
 - 上記を管理するadminページ
 
+になります。
+
+botは```pycord```、webは```FastAPI```&```jinja2```&```bootstrap```を採用しています。
+
 # 負債一覧
 - Pythonで導入しているパッケージが多い。
   - GitHubのスター数が少ないライブラリもあり、将来的に壊れる懸念があった。
