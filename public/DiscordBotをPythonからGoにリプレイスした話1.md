@@ -262,7 +262,6 @@ https://zenn.dev/maguro_alterna/articles/6749101c15046f
 
 ### webのテスト
 こちらも結合テストが主になります。
-詳細は該当部分で説明します。
 
 ### testunit
 上記のフィクスチャとモックを定義します。
