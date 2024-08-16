@@ -1,5 +1,5 @@
 ---
-title: DiscordBotをPythonからGoにリプレイスした話1
+title: DiscordBotをPythonからGoにリプレイスした話
 tags:
   - Go
   - discord
