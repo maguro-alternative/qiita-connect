@@ -3,7 +3,7 @@ title: DiscordBotをPythonからGoにリプレイスした話
 tags:
   - Go
   - discord
-private: true
+private: false
 updated_at: '2024-08-16T00:06:11+09:00'
 id: 080deb431adeefc61080
 organization_url_name: null
