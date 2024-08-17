@@ -3,6 +3,8 @@ title: DiscordBotをPythonからGoにリプレイスした話
 tags:
   - Go
   - discord
+  - Python
+  - リプレイス
 private: false
 updated_at: '2024-08-16T00:06:11+09:00'
 id: 080deb431adeefc61080
@@ -15,6 +17,8 @@ ignorePublish: false
 コロナの熱にうなされながら書いてます。
 
 今回はふんわりLTで発表した「DiscordBotをPythonからGoにリプレイスした話」をしていこうかと思います。
+
+https://wakate-funwari-study.connpass.com/event/323430/
 
 # bot概要
 以下はリプレイス前のBotのコードです。
