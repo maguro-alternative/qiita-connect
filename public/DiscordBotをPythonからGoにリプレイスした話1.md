@@ -16,7 +16,7 @@ ignorePublish: false
 こんにちは。社会人1年目のサーバーサイドエンジニアのマグロです。
 コロナの熱にうなされながら書いてます。
 
-今回はふんわりLTで発表した「DiscordBotをPythonからGoにリプレイスした話」をしていこうかと思います。
+今回は「1周年！若手エンジニアふんわりLT Day！」で発表した「DiscordBotをPythonからGoにリプレイスした話」をしていこうかと思います。
 
 https://wakate-funwari-study.connpass.com/event/323430/
 
